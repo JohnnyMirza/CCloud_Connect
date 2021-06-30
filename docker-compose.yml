@@ -80,29 +80,3 @@ services:
         #
         sleep infinity
       - sh -c "/tmp/submit_syslog.sh"
-      
-  splunk_search:
-    image: splunk/splunk:latest
-    container_name: splunk_search
-    environment:
-      - SPLUNK_START_ARGS=--accept-license
-      - SPLUNK_HEC_TOKEN=3bca5f4c-1eff-4eee-9113-ea94c284478a
-      - SPLUNK_PASSWORD=Password1
-      - SPLUNK_LICENSE_URI=Free
-    ports:
-      - 8000:8000
-      - 9998:9997
-
-  splunk_hf:
-     image: splunk/splunk:latest
-     container_name: splunk_hf
-     environment:
-       - SPLUNK_START_ARGS=--accept-license
-       - SPLUNK_PASSWORD=Password1
-       - SPLUNK_LICENSE_URI=Free
-       - SPLUNK_APPS_URL=https://raw.githubusercontent.com/JohnnyMirza/splunk_forward_to_kafka/master/splunk_forward_to_kafka.tgz
-     ports:
-       - 8001:8000
-       - 9997:9997
-     volumes:
-       - $PWD/CCloud_Connect/:$SPLUNK_HOME/etc/apps/splunk_forward_to_kafka/
