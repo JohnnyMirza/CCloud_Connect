@@ -4,7 +4,7 @@ source "../.env"
 HEADER="Content-Type: application/json"
 DATA=$( cat << EOF
 {
-  "name": "local-file-source",
+  "name": "file-source",
   "config": {
     "connector.class": "FileStreamSource",
     "topic":"${FS_TOPIC_NAME}",
