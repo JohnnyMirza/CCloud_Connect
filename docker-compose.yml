@@ -7,7 +7,7 @@ services:
     container_name: $CONTAINER_NAME
     volumes: 
       - ./connect/:/usr/share/confluent-hub-components/
-      - ./scripts/:/tmp/
+      - ./files/:/tmp/
     ports:
       - "8083:8083"
       - "5555:5555"
@@ -80,3 +80,4 @@ services:
         #
         sleep infinity
       - sh -c "/tmp/submit_syslog.sh"
+      - sh -c "/tmp/submit_fs.sh"
