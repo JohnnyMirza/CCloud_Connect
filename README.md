@@ -24,4 +24,4 @@ Once the instance is started, the Syslog connector is listening on localhot port
 
 **FileStream
 The test.txt file is located in the files directoy of the repo. To change the file change the `FS_FILE` setting in the .env file and docker-compose up -d again.
-To test filestream you can edit the test.txt file or `echo "Test 123" >> ./files/test.txt'
+To test filestream you can edit the test.txt file or `echo "Test 123" >> ./files/test.txt`
