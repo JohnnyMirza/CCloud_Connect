@@ -13,13 +13,14 @@ To get started:
 -CLOUD_SECRET: cluster->API keys
 -SCHEMA_REGISTRY_URL: Environment->Schema Registry->API endpoint
 -SCHEMA_REGISTRY_BASIC_AUTH: Environment->Schema Registry->API credentials (e.g. SCHEMA_REGISTRY_BASIC_AUTH='key':'secret')
-3. Create your topic in Confluent Cloud e.g. KAFKA_TOPIC_NAME=?
+3. Create your topic in Confluent Cloud e.g. KAFKA_TOPIC_NAME=? and FS_TOPIC_NAME=? (see .env file)
 4. docker-compose up -d
 ```
 
 
 **Syslog
 Once the instance is started, the Syslog connector is listening on localhot port 5555. You can test syslog by running the following, and you should see the message in Confluent Cloud console:
-`echo "<133>${0##*/}[$$]: Test syslog message from Netcat" | nc -w1 localhost 5555`
+-`echo "<133>${0##*/}[$$]: Test syslog message from Netcat" | nc -w1 localhost 5555`
 
 **FileStream
+The test.txt file is located in the files directoy of the repo. To change the file change the `FS_FILE` setting in the .env file and docker-compose up -d again.
